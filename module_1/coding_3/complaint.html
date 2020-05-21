@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Complaint Form
+        </title>
+        <style>
+            input{
+                width: 20%;
+            }
+            div{
+                margin: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Complaint Form</h2>
+        <form id="frm">
+            <div>
+                <label for="subject">Complaint subject:</label>
+                <input type="text" name="subject" id="subject" placeholder="Subject">
+            </div>
+            <div>
+                <label for="category">Select Category:</label>
+                <select>
+                    <option>Replacment</option>
+                    <option>Delay</option>
+                    <option>Refund</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div>
+                <label for="complaint">Enter Complaint:</label>
+                <input type="text" name="complaint" id="complaint" placeholder="Describe Complaint Here..">
+            </div>
+            <div>
+                <label for="orderid">Order Id:</label>
+                <input type="number" name="orderid" id="orderid">
+            </div>
+            <button onclick="store()">Submit</button>
+        </form>
+        <div id="demo"></div>
+        <script type="text/javascript">
+            var a= [];
+            function store(){
+                document.getElementById("frm").submit();
+                function arr(){
+                var sub = document.getElementById("subject").value;
+                a.push(sub);
+                var cat = document.getElementById("category").value;
+                a.push(cat);
+                var com = document.getElementById("complaint").value;
+                a.push(com);
+                var oid = document.getElementById("orderid").value;
+                a.push(oid)
+                }
+                arr();
+                var cont = document.getElementById("demo")
+                for(i=0;i<arr.length;i++){
+                    var ele = document.createElement("div");
+                    ele.textContent= a[i];
+                    ele.setAttribute("string","row")
+                    ele.style.fontSize: 20px;
+                    ele.style.color=red;
+                    cont.appendChild(ele)
+                }
+            }
+        </script>
+    </body>
+</html>
